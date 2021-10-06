@@ -1,0 +1,600 @@
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 56
+sumGreen: 56
+
+count: 2
+original Red Value: 1
+sumRed: 1
+original Green Value: 57
+sumGreen: 113
+
+count: 3
+original Red Value: 0
+sumRed: 1
+original Green Value: 56
+sumGreen: 169
+
+count: 4
+original Red Value: 1
+sumRed: 2
+original Green Value: 57
+sumGreen: 226
+
+AVERAGES
+avg red: 0
+avg green: 56
+
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 56
+sumGreen: 56
+
+count: 2
+original Red Value: 1
+sumRed: 1
+original Green Value: 57
+sumGreen: 113
+
+count: 3
+original Red Value: 2
+sumRed: 3
+original Green Value: 58
+sumGreen: 171
+
+count: 4
+original Red Value: 0
+sumRed: 3
+original Green Value: 56
+sumGreen: 227
+
+count: 5
+original Red Value: 1
+sumRed: 4
+original Green Value: 57
+sumGreen: 28
+
+count: 6
+original Red Value: 2
+sumRed: 6
+original Green Value: 58
+sumGreen: 86
+
+AVERAGES
+avg red: 1
+avg green: 14
+
+count: 1
+original Red Value: 1
+sumRed: 1
+original Green Value: 57
+sumGreen: 57
+
+count: 2
+original Red Value: 2
+sumRed: 3
+original Green Value: 58
+sumGreen: 115
+
+count: 3
+original Red Value: 0
+sumRed: 3
+original Green Value: 58
+sumGreen: 173
+
+count: 4
+original Red Value: 1
+sumRed: 4
+original Green Value: 57
+sumGreen: 230
+
+count: 5
+original Red Value: 2
+sumRed: 6
+original Green Value: 58
+sumGreen: 32
+
+count: 6
+original Red Value: 0
+sumRed: 6
+original Green Value: 58
+sumGreen: 90
+
+AVERAGES
+avg red: 1
+avg green: 15
+
+count: 1
+original Red Value: 2
+sumRed: 2
+original Green Value: 58
+sumGreen: 58
+
+count: 2
+original Red Value: 0
+sumRed: 2
+original Green Value: 58
+sumGreen: 116
+
+count: 3
+original Red Value: 0
+sumRed: 2
+original Green Value: 58
+sumGreen: 174
+
+count: 4
+original Red Value: 2
+sumRed: 4
+original Green Value: 58
+sumGreen: 232
+
+count: 5
+original Red Value: 0
+sumRed: 4
+original Green Value: 58
+sumGreen: 34
+
+count: 6
+original Red Value: 0
+sumRed: 4
+original Green Value: 59
+sumGreen: 93
+
+AVERAGES
+avg red: 0
+avg green: 15
+
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 58
+sumGreen: 58
+
+count: 2
+original Red Value: 0
+sumRed: 0
+original Green Value: 58
+sumGreen: 116
+
+count: 3
+original Red Value: 0
+sumRed: 0
+original Green Value: 59
+sumGreen: 175
+
+count: 4
+original Red Value: 0
+sumRed: 0
+original Green Value: 58
+sumGreen: 233
+
+count: 5
+original Red Value: 0
+sumRed: 0
+original Green Value: 59
+sumGreen: 36
+
+count: 6
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 96
+
+AVERAGES
+avg red: 0
+avg green: 16
+
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 58
+sumGreen: 58
+
+count: 2
+original Red Value: 0
+sumRed: 0
+original Green Value: 59
+sumGreen: 117
+
+count: 3
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 177
+
+count: 4
+original Red Value: 0
+sumRed: 0
+original Green Value: 59
+sumGreen: 236
+
+count: 5
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 40
+
+count: 6
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 100
+
+AVERAGES
+avg red: 0
+avg green: 16
+
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 59
+sumGreen: 59
+
+count: 2
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 119
+
+count: 3
+original Red Value: 0
+sumRed: 0
+original Green Value: 61
+sumGreen: 180
+
+count: 4
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 240
+
+count: 5
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 44
+
+count: 6
+original Red Value: 0
+sumRed: 0
+original Green Value: 61
+sumGreen: 105
+
+AVERAGES
+avg red: 0
+avg green: 17
+
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 60
+sumGreen: 60
+
+count: 2
+original Red Value: 0
+sumRed: 0
+original Green Value: 61
+sumGreen: 121
+
+count: 3
+original Red Value: 2
+sumRed: 2
+original Green Value: 63
+sumGreen: 184
+
+count: 4
+original Red Value: 0
+sumRed: 2
+original Green Value: 60
+sumGreen: 244
+
+count: 5
+original Red Value: 0
+sumRed: 2
+original Green Value: 61
+sumGreen: 49
+
+count: 6
+original Red Value: 2
+sumRed: 4
+original Green Value: 63
+sumGreen: 112
+
+AVERAGES
+avg red: 0
+avg green: 18
+
+count: 1
+original Red Value: 0
+sumRed: 0
+original Green Value: 61
+sumGreen: 61
+
+count: 2
+original Red Value: 2
+sumRed: 2
+original Green Value: 63
+sumGreen: 124
+
+count: 3
+original Red Value: 2
+sumRed: 4
+original Green Value: 63
+sumGreen: 187
+
+count: 4
+original Red Value: 0
+sumRed: 4
+original Green Value: 61
+sumGreen: 248
+
+count: 5
+original Red Value: 2
+sumRed: 6
+original Green Value: 63
+sumGreen: 55
+
+count: 6
+original Red Value: 2
+sumRed: 8
+original Green Value: 63
+sumGreen: 118
+
+AVERAGES
+avg red: 1
+avg green: 19
+
+count: 1
+original Red Value: 2
+sumRed: 2
+original Green Value: 63
+sumGreen: 63
+
+count: 2
+original Red Value: 2
+sumRed: 4
+original Green Value: 63
+sumGreen: 126
+
+count: 3
+original Red Value: 2
+sumRed: 6
+original Green Value: 63
+sumGreen: 189
+
+count: 4
+original Red Value: 2
+sumRed: 8
+original Green Value: 63
+sumGreen: 252
+
+count: 5
+original Red Value: 2
+sumRed: 10
+original Green Value: 63
+sumGreen: 59
+
+count: 6
+original Red Value: 2
+sumRed: 12
+original Green Value: 63
+sumGreen: 122
+
+AVERAGES
+avg red: 2
+avg green: 20
+
+count: 1
+original Red Value: 2
+sumRed: 2
+original Green Value: 63
+sumGreen: 63
+
+count: 2
+original Red Value: 2
+sumRed: 4
+original Green Value: 63
+sumGreen: 126
+
+count: 3
+original Red Value: 1
+sumRed: 5
+original Green Value: 64
+sumGreen: 190
+
+count: 4
+original Red Value: 2
+sumRed: 7
+original Green Value: 63
+sumGreen: 253
+
+count: 5
+original Red Value: 2
+sumRed: 9
+original Green Value: 63
+sumGreen: 60
+
+count: 6
+original Red Value: 1
+sumRed: 10
+original Green Value: 64
+sumGreen: 124
+
+AVERAGES
+avg red: 1
+avg green: 20
+
+count: 1
+original Red Value: 2
+sumRed: 2
+original Green Value: 63
+sumGreen: 63
+
+count: 2
+original Red Value: 1
+sumRed: 3
+original Green Value: 64
+sumGreen: 127
+
+count: 3
+original Red Value: 1
+sumRed: 4
+original Green Value: 64
+sumGreen: 191
+
+count: 4
+original Red Value: 2
+sumRed: 6
+original Green Value: 63
+sumGreen: 254
+
+count: 5
+original Red Value: 1
+sumRed: 7
+original Green Value: 64
+sumGreen: 62
+
+count: 6
+original Red Value: 0
+sumRed: 7
+original Green Value: 65
+sumGreen: 127
+
+AVERAGES
+avg red: 1
+avg green: 21
+
+count: 1
+original Red Value: 1
+sumRed: 1
+original Green Value: 64
+sumGreen: 64
+
+count: 2
+original Red Value: 1
+sumRed: 2
+original Green Value: 64
+sumGreen: 128
+
+count: 3
+original Red Value: 1
+sumRed: 3
+original Green Value: 66
+sumGreen: 194
+
+count: 4
+original Red Value: 1
+sumRed: 4
+original Green Value: 64
+sumGreen: 2
+
+count: 5
+original Red Value: 0
+sumRed: 4
+original Green Value: 65
+sumGreen: 67
+
+count: 6
+original Red Value: 1
+sumRed: 5
+original Green Value: 66
+sumGreen: 133
+
+AVERAGES
+avg red: 0
+avg green: 22
+
+count: 1
+original Red Value: 1
+sumRed: 1
+original Green Value: 64
+sumGreen: 64
+
+count: 2
+original Red Value: 1
+sumRed: 2
+original Green Value: 66
+sumGreen: 130
+
+count: 3
+original Red Value: 1
+sumRed: 3
+original Green Value: 65
+sumGreen: 195
+
+count: 4
+original Red Value: 0
+sumRed: 3
+original Green Value: 65
+sumGreen: 4
+
+count: 5
+original Red Value: 1
+sumRed: 4
+original Green Value: 66
+sumGreen: 70
+
+count: 6
+original Red Value: 1
+sumRed: 5
+original Green Value: 65
+sumGreen: 135
+
+AVERAGES
+avg red: 0
+avg green: 22
+
+count: 1
+original Red Value: 1
+sumRed: 1
+original Green Value: 66
+sumGreen: 66
+
+count: 2
+original Red Value: 1
+sumRed: 2
+original Green Value: 65
+sumGreen: 131
+
+count: 3
+original Red Value: 0
+sumRed: 2
+original Green Value: 67
+sumGreen: 198
+
+count: 4
+original Red Value: 1
+sumRed: 3
+original Green Value: 66
+sumGreen: 8
+
+count: 5
+original Red Value: 1
+sumRed: 4
+original Green Value: 65
+sumGreen: 73
+
+count: 6
+original Red Value: 0
+sumRed: 4
+original Green Value: 67
+sumGreen: 140
+
+AVERAGES
+avg red: 0
+avg green: 23
+
+count: 1
+original Red Value: 1
+sumRed: 1
+original Green Value: 65
+sumGreen: 65
+
+count: 2
+original Red Value: 0
+sumRed: 1
+original Green Value: 67
+sumGreen: 132
+

@@ -1,0 +1,14 @@
+sort1 uses: bubble sort
+
+How do you know?: we know that big O and big Omega are very different. So if we look at the worst case (reverse) and best case (already sorted)
+we see that the times are vastly different. Specifically, we see that sort1 beats sort3 when dealing with a sorted array. Since
+bubble should beat selection array in best case scenario, this matches the pattern we expect from bubble sort.
+
+sort2 uses: merge sort
+
+How do you know?: This algorithm performs consistently and is the fastest. So it must be Merge, given merge is theta nlogn.
+
+sort3 uses: Selection Sort
+
+How do you know?: We know that selection sort is consistently slow (given its runtime of theta n^2). We see a consistently slow runtime in the
+readout.

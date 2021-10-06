@@ -1,0 +1,87 @@
+--Memory--
+
+& -- address of
+* -- declares a pointer or a dereference operator (go to value at a designated address).
+
+int n = 50;        50 is then placed at an address somewhere in memory. 0x123, or some other hex.
+int *p = &50        p, a pointer, now contains the address of 50, 0x123
+
+a string is the address of the first character in a string, hence char *p. a string is just a pointer. it points
+to the first character.
+
+string s is a custom data type
+
+e.g. 
+typedef struct
+{
+    string name;
+    string number;
+}
+person
+
+typedef char *string --> this is the code used to generate the string data type.
+
+you can check for NULL when allocating memory to check for the annul pointer (bogus address, technically
+zero). NULL for pointers /0 (NUL) is for characters.
+
+if you keep malloc-ing, you'll eventually need to return the memory. SO you need to free it.
+
+free(t) --> t is what we gave malloc to begin with
+
+debugging method: valgrind
+
+you can use this to check for memory leaks (or other errors), when free isn't called after malloc
+
+int *x; <--- declaring pointer x (an address where we can store an int)
+int *y; //
+
+x = malloc(sizeof(int));//allocate the size of an int to x
+
+remember ints take up a particular chunk of memory (4 bytes in modern memory), so...
+
+if we forget to malloc y, the following doesn't work
+
+*y = 32; //known as dereferencing an uninitialized variable. the 32 is a pointee.
+
+because no memory has been allocated to y.
+
+Garbage Values
+memory you didn't put there. over time we accumulate unused memory. 
+
+Memory Map
+
+Machine Code
+Global Variables
+Heap --> memory for malloc to allocate
+
+Stack --> memory for functions (located below Heap at bottom of memory)
+
+no separation between these, but the vast distance between them ensures, more or less,
+that nothing will collide.
+________________________
+Machine Code
+Global Variables
+Heap
+
+^
+^
+^
+
+Swap (once Swap is done, it goes away)
+Main
+____________________________
+
+You can use addresses to pass values between swap function and main function (for instance)
+int (&x, &y)
+
+void swap(int *a, int *b)
+
+StackOverflow --> call functions so many times, you overrun the designated Heap.
+
+behind every datatype is scanf, which has dangers
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+--volume lab4--
+
+uint8_t --> stores 8-bit unsigned (not negative) integer
+int16_t --> stores 16-bit signed (negative or positive) int
+
+EOF -- Enof FIle 
