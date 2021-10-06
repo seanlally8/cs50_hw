@@ -1,0 +1,302 @@
+ll of my notes have been delted. So I will attempt to reconstruct them from memory, as they are still somewhat fresh
+HEX
+hexadecimal notation preceded by 0x0
+four bits of binary equivalent to one hex digit
+so 
+
+01010001010000100
+is broken into 0101 0001 0100 001 (you get the idea)
+
+    digits organized as per usual 16^0 16^1 16^2 or 1, 16, 256
+
+    Used primarily for addresses in RAM
+-----------------------------------------------
+POINTERS
+pointers are just addresses
+
+so int* p; is a pointer called p, containing some address
+
+int x;
+int* px = &x; ---> here we're setting the pointer px to the address of x, so now px points to the address of int x;
+
+if int x = 5;
+and int* px = &x;
+then *px = 5; <---- this is because *px is a dereferencing operator, 
+
+     just bc i have my friend's address doesn't mean I can interact with them. I must go to the address. Dereferencing is the "going"
+     *px will show me what is at the address contained in px.
+     say px contains some hex address 0x123. when I dereference px with *px I go to 0x123 and reveal whatever value is contained there.
+     Note that I declare the type of value that px points to. above we've declared it to be a pointer to an integer. So we shoudl find an integer.
+
+--------------------------------------------------
+Definting Custom Types
+we can do the following to rename a given data type, in this case unsigned char
+
+typedef unsigned char byte; <---- this takes the form typedef <oldname> <newname>
+
+we also know that we can make new data structures with struct
+struct car
+{
+    int x;
+    char p;
+    bool y;
+};
+
+In this case, we'll have to refer to this structure as struct car 
+
+We can combine structs with type def to produce
+
+typedef struct car
+{
+    int x;
+    char p;
+    bool y;
+}
+car_t;
+
+Note that it takes the same form: typedef <oldname> (which is struct car up to the close bracket) <newname> (which is car_t);
+-----------------------------------------------
+Dynamic Mem Allocation
+we can use pointers to get dynamically aloc memory at runtime
+this dynamically allocatable memory comes from the heap
+
+all the statically alloc mem we've been working with has come from the stack*************************
+
+The stack and the heap are in the same field of memory
+heap moving downward
+stack grows up from bottom
+
+Use malloc to dynamically allocate mem
+
+stdlib.h has malloc
+
+malloc(4) gives you the size necessary for int
+
+malloc will go find 4 contiguous byte on heap and return pointer to that mem
+
+note that malloc might find NULL (if no memory left for instance)
+        So ALWAYS CHECK FOR NULL AFTER MALLOC
+
+int x; <---static
+int *px = malloc(4) OR malloc(sizeof(int)); <--- dynamic, malloc wll find 4 bytes next to each other and return pointer
+
+e.g.
+int x = get_int();
+
+to declare an array of x floats on the stack (statically):
+
+    float stack_array[x]; <---- not legal in certain languages, c99 or c11 but not older vs of c
+
+to declare an array of x floats on the heap (dynamically):
+    float* heap_array = malloc(x * sizeof(float)); <--- returns one giant block of memory that size, which we treat as an array
+
+we must free() memory after calling malloc otherwise we have memory leaks
+In functions, that memory gets freed automatically once we leave the brackets
+
+The system will not assume anything if you ask it for memory. 
+
+char * word = malloc (50 * sizeof(char));
+
+do stuff with word
+
+we're done
+free(word)
+
+
+3 rules
+1. everything you malloc must be freed
+    *if program finished (return 0;) then it will be freed, but we should do it
+2.Only things that you malloc you free, not statically allocated
+3.Do not free same block more than once (this cause the computer to think it has more memory than it does)
+
+e.g.
+
+int m; <---- box m gets an int 
+int* a; <---- box gets an address which can point to ints
+int* b = malloc(sizeof(int)); <--- here the pointer, b, is being given memory large enough to store an int. box(b) -------> box(sizeof(int)), that second box has no other designation than the pointer b
+                so we will always have to dereference b when we want that value. This is one way you can tell you're working with memory dynamically.
+right after
+check to see if b is null
+
+a = &m; <---- a now points at int m;
+a = b; <---- a now points at the mem allocated by malloc above
+m = 10; <---- int m now contains 10:
+*b = m + 2; <---- the malloced memory gets the number 12
+free(b); <----- the malloced memory is no longer accessible, we can try to touch it, but bad things will happen
+
+------------------------------------------------------------
+Call Stacks
+
+understanding call stack helpful for recursion:
+call a function, chunk of memory is set aside to do the function, this is a stack frame, function frame
+    if I declare int x, y, z; I get enough memory for these ints
+
+let's say main calls move calls direction
+
+all three functions have open frames, but only one will run at a time. 
+
+the most recently called function sits at the top of the stack <-- active frame
+direction <--- active frame
+move
+main
+
+when you call a new function, a new frame is "pushed" to the top of the stack
+
+when function finishes, that frame is "popped" off the stack
+
+the second frame down, move, starts running
+
+recursion works by oscillating between active frames
+
+e.g.
+int fact(int n)
+{
+    if (n == 1)
+        return 1;
+    else
+            return n * fact(n-1);
+}
+
+int main(void);
+{
+    printf("%i\n", fact(5));
+}
+
+fact(1) <--- base case returns 1, and frame is popped off call stack
+fact(2) <---- this returns 2 * 1
+fact(3) <---- this returns 3 * 2
+fact(4) <---- this returns 4 * 6
+fact(5) <---- this returns 5 * 24 = 120 , each popped off after it returns the value
+printf()
+main
+----------------------------------
+file pointers
+
+up until this point our programs go away when theyre complete
+
+but we can use pointers to files to deal with them (file pointers are related but not exactly the same thing)
+    
+FILE* is in stdio.h (where printf is)
+
+Every file io function accepts FILE* as one of its arguments, except for fopen(), which is used to get the file pointer at the outset
+
+main file io functions
+fopen() fclose()
+fgetc() fputc()
+fread() fwrite()
+
+fopen <--- opens a file and returns a pointer to it
+
+FILE* ptr = fopen(<filename>, <operation>);
+CHECK FOR NULL
+
+e.g.
+FILE* ptr1 = fopen("file1.txt", "r") <--- here r means read, so this will allow us to read
+FILE* ptr2 = fopen("text2.txt", "w") <--- we can write to it
+// // // with "a" <---- stands for append, if we want to add and not overwrite
+
+fclose(<file pointer>); <----we're done working with this file
+
+e.g.
+fclose(ptr1); <--- no longer reading ptr1 see above
+
+char ch = fgetc(<file pointer>); <---- very next (or first) character of that file and stores it in a character variable
+        the file must be open for reading using "r" (limitation of fopen is that we restrict what we can do)
+        to write the same file, we must make another pointer that can write
+
+char ch = fgetc(ptr1); <---- get next character of whatever file is pointed to by ptr1, note that ptr1 is opened for reading
+
+if we loop fgetc we can read every character in a file
+and if we printf whatever is in ch via a loop, we get the cat function in linux
+
+e.g. 
+char ch;
+while ((ch = fgetc(ptr)) != EOF) <----- this is cat. so everytime this loop returns ch gets the next character and compares it to EOF (which is like the NULL character at the end of a file)
+    printf("%c", ch);
+
+fputc <--- allows us to write a single character to a file, we must open the file for writing to use this
+
+fputc('A', ptr2); <---- write capital A to ptr2
+
+we can use this to copy a file (linux command cp)
+
+char ch;
+while((ch = fgetc(ptr)) != EOF)
+    fputc(ch, ptr2); <------ again, we read from the file, compare it to EOF and this time we print that character to another file (which is writable)
+
+
+fread(<buffer>, <size>, <qty>, <file pointer>); <---- similar to fget, except we can control how much data we get at once
+    -pointer to location where we will store info ,
+    -how large each unit will be
+    -how many units we want to aquire
+    -from which file we want to get them
+
+int arr[10]; <---- this is our buffer, where we store the information
+fread(arr, sizeof(int), 10, ptr); <--- name of array is really just a pointer, so arr is a pointer.
+
+double* arr2 = malloc(sizeof(double) *80); <---- saving on the heap
+fread(arr2, sizeof(double), 80, ptr);
+
+we can use fread like fgetc
+
+char c; <---- saved on the stack
+fread(&c, sizeof(char), 1, ptr);
+
+fwrite is the same but the other way
+
+int arr[10];
+<----arr should be filled with something using fread()<----------
+fwrite(arr, sizeof(int), 10, ptr); <---- ptr is writable here
+    -buffer <--- we write from arr
+    -size
+    -qty
+    -file pointer <--- put the information here
+
+fopen <-
+fclose
+fgetc
+fputc
+fread
+fwrite
+
+fgets <--- read string
+fputs <---- write string in file
+fprintf <---- printf to a file
+fseek <---- move around the file 
+ftell <---- how many bytes am i into the file
+feof <----tells you if you've reached the end
+ferror <---- detect whether something has gone wrong in a file
+
+THINGS TO REMEMBER (details)
+    1. an Array is just a pointer to the first element
+        so lets say I have int arr[10]; declared
+        I can refer to the 2nd element in two ways
+        -arr[1]; or
+        -*(arr + 1); such as in printf("%i\n", *(arr + 1));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

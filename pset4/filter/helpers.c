@@ -12,7 +12,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             	//printf("original blue value: %i\n", image[i][j].rgbtBlue);
-		        //printf("original green value: %i\n", image[i][j].rgbtGreen); 
+		        //printf("original green value: %i\n", image[i][j].rgbtGreen);
 	        	//printf("original red value: %i\n", image[i][j].rgbtRed);
 		        avg = ((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3);
             	image[i][j].rgbtBlue = round(avg);
@@ -45,18 +45,26 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE cp_image[height][width];
+    uint8_t sumBlue;
+    uint8_t sumGreen;
+	uint8_t sumRed;
+    uint8_t avgb;
+    uint8_t avgg;
+    uint8_t avgr;
+    int count;
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j ++)
         {
-		
-            uint8_t sumBlue = 0;
-        	uint8_t sumGreen = 0;
-	    	uint8_t sumRed = 0;
-        	uint8_t avgb = 0;
-           	uint8_t avgg = 0;
-        	uint8_t avgr = 0;
-        	int count = 0;
+            sumBlue = 0;
+            sumGreen = 0;
+	    	sumRed = 0;
+        	avgb = 0;
+           	avgg = 0;
+        	avgr = 0;
+        	count = 0;
+
             for (int x = i - 1; x < i + 2; x++)
             {
                 for (int y = j - 1; y < j + 2; y++)
@@ -73,30 +81,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                        	sumGreen = sumGreen + image[x][y].rgbtGreen;
                        	sumBlue = sumBlue + image[x][y].rgbtBlue;
 			            count = count + 1;
-			
-                        //printf("count: %i\n", count);
-			            //printf("original Red Value: %i\n", image[x][y].rgbtRed);
-			            //printf("sumRed: %i\n", sumRed);
-			            //printf("original Green Value: %i\n", image[x][y].rgbtGreen);
-			            //printf("sumGreen: %i\n", sumGreen);
-			            //printf("\n");
+
                     }
                 }
             }
-		
-        //                printf("AVERAGES\n");
+	//printf("%i\n", count);
             	        avgr = sumRed / count;
-		  //              printf("avg red: %i\n", avgr);
             	        avgg = sumGreen / count;
-		    //            printf("avg green: %i\n", avgg);
-		      //          printf("\n");
 		                avgb = sumBlue / count;
-            	
-                        cp_image[i][j].rgbtRed = round(avgr);
-            	        cp_image[i][j].rgbtGreen = round(avgg);
-       	    	        cp_image[i][j].rgbtBlue  = round(avgb); 
-	}
+
+                        cp_image[i][j].rgbtRed = avgr;
+            	        cp_image[i][j].rgbtGreen = avgg;
+       	    	        cp_image[i][j].rgbtBlue  = avgb;
+	    }
     }
+
     for (int m = 0; m < height; m++)
     {
         for (int p = 0; p < width; p++)
@@ -104,11 +103,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             	image[m][p].rgbtRed = cp_image[m][p].rgbtRed;
             	image[m][p].rgbtGreen = cp_image[m][p].rgbtGreen;
             	image[m][p].rgbtBlue = cp_image[m][p].rgbtBlue;
- //		printf("%hhu and %hhu\n", cp_image[200][200].rgbtRed, image[200][200].rgbtRed);	
-	}
-	
+	    }
+
     }
-    return; 
+
+    return;
 }
 
 // Detect edges
