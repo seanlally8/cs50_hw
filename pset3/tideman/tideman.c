@@ -119,16 +119,16 @@ void record_preferences(int ranks[])
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = i; j < candidate_count; j++)
+        {
+            if (i == j)
             {
-                if (i == j)
-                {
-                    preferences[ranks[i]][ranks[j]] = 0;
-                }
-                else
-                {
-                    preferences[ranks[i]][ranks[j]] = preferences[ranks[i]][ranks[j]] + 1;
-                }
+                preferences[ranks[i]][ranks[j]] = 0;
             }
+            else
+            {
+                preferences[ranks[i]][ranks[j]] = preferences[ranks[i]][ranks[j]] + 1;
+            }
+        }
     }
     return;
 }
@@ -136,28 +136,28 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    pair_count = candidate_count*(candidate_count - 1)/2;
+    pair_count = candidate_count * (candidate_count - 1) / 2;
     int n = 0;
     for (int i = 0; i < candidate_count - 1; i++)
     {
         for (int j = i + 1; j < candidate_count; j++)
         {
-                if (preferences[i][j] == preferences[j][i])
-                {
-                    pair_count--;
-                    continue;
-                }
-                if (preferences[i][j] > preferences[j][i])
-                {
-                    pairs[(pair_count + n) - pair_count].winner = i;
-                    pairs[(pair_count + n) - pair_count].loser = j;
-                }
-                if (preferences[i][j] < preferences[j][i])
-                {
-                    pairs[(pair_count + n) - pair_count].winner = j;
-                    pairs[(pair_count + n) - pair_count].loser = i;
-                }
-                n = n + 1;
+            if (preferences[i][j] == preferences[j][i])
+            {
+                pair_count--;
+                continue;
+            }
+            if (preferences[i][j] > preferences[j][i])
+            {
+                pairs[(pair_count + n) - pair_count].winner = i;
+                pairs[(pair_count + n) - pair_count].loser = j;
+            }
+            if (preferences[i][j] < preferences[j][i])
+            {
+                pairs[(pair_count + n) - pair_count].winner = j;
+                pairs[(pair_count + n) - pair_count].loser = i;
+            }
+            n = n + 1;
         }
     }
     return;
@@ -168,7 +168,8 @@ void sort_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] < preferences[pairs[i + 1].winner][pairs[i + 1].loser] - preferences[pairs[i + 1].loser][pairs[i + 1].winner])
+        if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] < preferences[pairs[i +
+             1].winner][pairs[i + 1].loser] - preferences[pairs[i + 1].loser][pairs[i + 1].winner])
         {
             pairs[pair_count] = pairs[i];
             pairs[i] = pairs[i + 1];
@@ -185,7 +186,7 @@ void lock_pairs(void)
 
     for (int i = 0; i < pair_count; i++)
     {
-       locked[pairs[i].winner][pairs[i].loser] = true;
+        locked[pairs[i].winner][pairs[i].loser] = true;
 
         int n = pairs[i].winner;
         int temp = 0;
@@ -223,10 +224,12 @@ void print_winner(void)
     int loser[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-         loser[i] = candidate_count;
+        loser[i] = candidate_count;
     }
 
-
+    //If a locked pair is marked as true that means the second dimesion (pairs[].loser) is on the receiving end of an arrow.
+    //This means that person cannot be the winner. We thus put them in the loser array at the index equal to their value. the 0th candidate
+    //would be placed at index 0 of the loser array.
     for (int j = 0; j < pair_count; j++)
     {
         if (locked[pairs[j].winner][pairs[j].loser] == 1)
@@ -235,13 +238,14 @@ void print_winner(void)
         }
     }
 
-
+    //If the candidate count is 5 -- and 3 is the winner -- then the loser array will look like this [0,1,2,5,4].Thus the candidate
+    //at index 3 of the candidates array will be the winner.
     for (int m = 0; m < candidate_count; m++)
     {
-         if (loser[m] == candidate_count)
-         {
-             printf("%s\n", candidates[m]);
-         }
+        if (loser[m] == candidate_count)
+        {
+            printf("%s\n", candidates[m]);
+        }
     }
 }
 

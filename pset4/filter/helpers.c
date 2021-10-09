@@ -6,7 +6,7 @@
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
-    uint8_t avg;
+    float avg;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -14,7 +14,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             	//printf("original blue value: %i\n", image[i][j].rgbtBlue);
 		        //printf("original green value: %i\n", image[i][j].rgbtGreen);
 	        	//printf("original red value: %i\n", image[i][j].rgbtRed);
-		        avg = ((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3);
+		        avg = ((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0);
             	image[i][j].rgbtBlue = round(avg);
             	image[i][j].rgbtGreen = round(avg);
             	image[i][j].rgbtRed = round(avg);
@@ -31,7 +31,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     RGBTRIPLE temp;
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0, n = width; j < (width - (width/2)); j++)
+        for (int j = 0, n = width - 1; j < (width - (width/2)); j++)
         {
             temp = image[i][j];
             image[i][j] = image[i][j + n];
@@ -45,13 +45,13 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE cp_image[height][width];
-    uint8_t sumBlue;
-    uint8_t sumGreen;
-	uint8_t sumRed;
-    uint8_t avgb;
-    uint8_t avgg;
-    uint8_t avgr;
-    int count;
+    float sumBlue;
+    float sumGreen;
+    float sumRed;
+    float avgb;
+    float avgg;
+    float avgr;
+    float count;
 
     for (int i = 0; i < height; i++)
     {
@@ -80,19 +80,27 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                        	sumRed = sumRed + image[x][y].rgbtRed;
                        	sumGreen = sumGreen + image[x][y].rgbtGreen;
                        	sumBlue = sumBlue + image[x][y].rgbtBlue;
-			            count = count + 1;
-
+			            count = count + 1.0;
                     }
                 }
             }
-	//printf("%i\n", count);
+                       // printf("DEBUG: count BEFORE: %f\n", count);
+
+                        //printf("DEBUG: sumGreen BEFORE: %i\n", sumGreen);
+
+                        //printf("DEBUG: avgg BEFORE: %i\n", avgg);
             	        avgr = sumRed / count;
             	        avgg = sumGreen / count;
 		                avgb = sumBlue / count;
 
-                        cp_image[i][j].rgbtRed = avgr;
-            	        cp_image[i][j].rgbtGreen = avgg;
-       	    	        cp_image[i][j].rgbtBlue  = avgb;
+                        //printf("DEBUG: count AFTER: %f\n", count);
+
+                        //printf("DEBUG: sumGreen AFTER: %i\n", sumGreen);
+
+                        //printf("DEBUG: avgg AFTER: %i\n", avgg);
+                        cp_image[i][j].rgbtRed = round(avgr);
+            	        cp_image[i][j].rgbtGreen = round(avgg);
+       	    	        cp_image[i][j].rgbtBlue  = round(avgb);
 	    }
     }
 

@@ -13,35 +13,36 @@ int main(void)
     ccnumber = get_long("Please enter your credit card number: ");
 
     //begin main algorithm. convert ccnumber into separate digits
-   long ccnumber1 = ccnumber;
-   long digit[16];
-   for (int i = 0; i < 16; i++)
-   {
+    long ccnumber1 = ccnumber;
+    long digit[16];
+    for (int i = 0; i < 16; i++)
+    {
         digit[i] = ccnumber1 % 10;
         ccnumber1 = (ccnumber1 - digit[i]) / 10;
-   }
+    }
 
     //multiply every other digit (starting on the right) by 2
-   long output[8];
-   int n = 1;
-   for (int i = 0; i < 8; i++)
-   {
+    long output[8];
+    int n = 1;
+    for (int i = 0; i < 8; i++)
+    {
         output[i] = digit[i + n] * 2;
         n = n + 1;
-   }
+    }
 
     //convert preceding products into separate digits to be added.
     long digit_sum[16];
     int x = 0;
     for (int i = 0; i < 16; i++)
     {
-            digit_sum[i] = output[x] % 10; // use modelo to parse out digits, where necessary
-            output[x] = (output[x] - digit_sum[i]) / 10;
-            i = i + 1;
-            digit_sum[i] = output[x] % 10;// if output[x] was 12 then this would be capturing the "1" digit. If the initial output[x] of this 
-                                            //loop was a single digit, then this second half will just give a 0 digit.
-            output[x] = (output[x] - digit_sum[i]) / 10;
-            x = x + 1;
+        digit_sum[i] = output[x] % 10; // use modelo to parse out digits, where necessary
+        output[x] = (output[x] - digit_sum[i]) / 10;
+        i = i + 1;
+        // if output[x] was 12 then this would be capturing the "1" digit. If the initial output[x] of this
+        //loop was a single digit, then this second half will just give a 0 digit.
+        digit_sum[i] = output[x] % 10;
+        output[x] = (output[x] - digit_sum[i]) / 10;
+        x = x + 1;
     }
 
     //add digits from preceding section
@@ -70,7 +71,7 @@ int main(void)
     }
     else  if ((ccnumber >= 4000000000000 && ccnumber < 5000000000000 && final_modulo == 0)
 
-            || (ccnumber >= 4000000000000000 & ccnumber < 5000000000000000 && final_modulo == 0))
+              || (ccnumber >= 4000000000000000 & ccnumber < 5000000000000000 && final_modulo == 0))
     {
         printf("VISA\n");
     }

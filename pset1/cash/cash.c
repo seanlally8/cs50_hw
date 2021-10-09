@@ -23,8 +23,8 @@ int main(void)
     {
         if (cents >= 25) //if the # of cents is greater than or equal to 25, then a quarter can be used.
         {
-             y = y + 1;
-             cents = cents - 25;
+            y = y + 1;
+            cents = cents - 25;
         }
         if (cents >= 10 && cents < 25)// if the number of cents is >= 10 AND less than 25, a dime can be used.
         {
