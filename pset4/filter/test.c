@@ -5,7 +5,9 @@
 
 int main(void)
 {
-    uint8_t avg;
-    avg = (27 + 28 + 28) / 3.0;
-    printf("%f", avg);
+    float avg;
+    float count = 0;
+    count = count + 3;
+    avg = 223 / count;
+    printf("%f and %f", avg, count);
 }
