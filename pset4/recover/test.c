@@ -10,6 +10,7 @@ int main(void)
 
     for (int i = 0; i < 11; i++)
     {
+        sprintf(buffer, "%.3i.jpg", filename);
         printf("%s\n", buffer);
         filename++;
     }
