@@ -12,7 +12,7 @@ typedef uint8_t BYTE;
 int filename = 0;
 
 //set array size for sprintf call
-char filedigits[7];
+char filedigits[8];
 
 //Prototype function for checking jpeg signatures
 int jpgcheck(BYTE *buffer);
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 
     //since the last i/o function was fread, we write out of the allocated buffer into the newly opened file
     fwrite(buffer, sizeof(BYTE), BLOCK, newfile);
-    
+
     //Continue to read from the source file into the newly opened file,
     //and when a new jpeg signature is found, close that file and open another one to write into.
     while (fread(buffer, sizeof(BYTE), BLOCK, source))
@@ -93,13 +93,13 @@ int main(int argc, char *argv[])
 
     //close the output jpg file
     fclose(newfile);
-    
+
     //close the source file (entered by the user)
     fclose(source);
-    
+
     //free the memory allocated for the buffer
     free(buffer);
-    
+
     //Exit program with no errors
     return 0;
 }

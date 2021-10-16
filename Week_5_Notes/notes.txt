@@ -1,0 +1,207 @@
+Notes on Data Structures 10/16/2021
+
+--Building a linked list --
+
+node *list = NULL;
+
+node *n = malloc(sizeof(node));
+
+if (n != NULL)
+{
+    (*n).number = 1; //so long as n is no NULL, start at the address, n, go to n and place the number 1
+}
+
+
+if (n != NULL)
+{
+    n->next = NULL;//arrow points at floor
+}
+
+//repeat from above, different syntactic sugar
+if (n != NULL)
+{
+    n->number = 1;//same as above: first in list
+}
+
+list = n; //n up until now has been temporary, but if I want the node to be a
+part of my linked list, I need to point list at the same address as n.
+
+
+//create new node
+node *n = malloc(sizeof(node))
+if (n != NULL
+{
+    n->number = 2;
+    n->next = NULL;
+}
+
+list->next = n; //chaining list to 2nd element
+
+
+node *n = malloc(sizeof(node))
+if (n != NULL
+{
+    n->number = 2;
+    n->next = NULL;
+}
+
+list->next->next = n; //follow the pointer, follow te pointer,
+
+Running Time: Upper bound of linked list O(n)
+
+You can reach any element in an array with constant time (random access)
+
+But you need to go through every element in linked list. Hence Big of of n
+
+Run time of inserting into linked list: O(1) i.e. consant time
+
+---------------------
+
+the alternative is to copy an array into a new array of a larger size, using malloc
+
+if you declare an array using square brackets, you are statically allocating an array,
+on the stack
+
+But if you malloc an array, you can resize the array, this is dynamic allocation
+
+and instead of using malloc twice, you can use realloc:
+
+int *tmp = realloc(list, 4 * sizeof(int)); // resizes the malloced memory given to list
+
+this will copy the old into the new for you, so you don't need:
+
+for loop
+{
+    tmp[i] = list[i]
+}
+
+O(n) to insert element into an array
+______________________
+
+always set last element in list to NULL, otherwise you get garbage value
+
+When adding an element into the linked list, you need to "keep your hand" on the next node
+
+ORDER OF OPERATIONS MATTERS
+______________________
+
+what if we think about data structures in two dimensions (up and down)
+    a tree structure, with a root that branches
+
+typedef struct node
+{
+    int number;
+    struct *node left;
+    struct *node rigt;//same basic idea as a linked list except here instead of a single pointer (next) we have two pointers (right and left)
+}
+node;
+Search a tree
+
+bool search(node *tree, int number)
+{
+    if (tree == NULL)
+    {
+        return false; //false bc this function returns a bool
+    }
+
+    else if (number < tree->number)
+    {
+        return search(tree->left, number);//recursively search sub tree
+    }
+
+    else if (number > tree->number)
+    {
+        return search(tree->right, number);
+    }
+
+    else if (number == tree->number) or just else
+    {
+        return true
+    }
+}
+
+insertions is no longer constant time -- it's O(log n), which we'd expect with anything binary
+
+this is because the height of the binary search tree is ~log n
+    in the case of 7 elements, it's actually log n (which is 3)
+    log base 2 of 8 is 3
+
+_________________________________-
+
+we can search with constant time using hash tables (an array of linked lists)
+    good for searching contacts, for example
+
+Harry and Hermione are placed in the same bin, and we stitch them together using the linked list structure
+
+We can find them deterministically -- they'll always be in the same place
+
+Hash function   takes char* input and outputs a number (the index in the array where you can find the name)
+
+    some names ine hash tables will be retrieved immediately, but if they've been added later, they'll be further down the indexed linked list
+
+How do we get from this to one step?
+
+---------------------------------
+We could grow the hash table, where each index is aa, ab, ac, ad ... ba, bb, bc ... etc.
+    but we'll end up growing the list exponentially
+
+    from 26 indices to (26^2) to (26^3) etc.
+            that's a lot of memory
+
+Hashing values is essentially like sorting playing cards by suit
+    We do this to save time looking for certain cards
+
+Searching a hash table is a runtime of O(n) (linear time). Technically (or asymptotically), n/4 is on the order of n.
+            BUT in the real world, n/4 is clearly faster than n when judged by clock time
+
+---------------------------------
+There's yet another solution to efficient search
+
+    TRIES (or prefix searches) -- short for retrieval a tree, where each node is an array
+        Tries provide constant time searches, because the number of steps is constant (even if there are 100 characters)
+            BUT we're taking up a lot of memory regardless of the number of names. so even with just one name of 7 characters, we need at least 7 arrays
+            of size 26
+???? a guess
+typedef struct node
+{
+    int letter[26];
+    struct *node right;
+    struct *node left;
+}
+node;
+
+__________________________________
+Using lower level implementation details, simplifying them for the sake of discussion is higher level abstract data structures
+
+for example, queues
+
+    FIFO (first in first out)
+    enqueue walk up to store and wait
+    dequeue leave the line to go into store
+
+    To implement a queue, you need to use lower level implementation
+        you could use a linked list or array
+            if you use array, every time someone leaves the line
+            we'd have to copy all the values and insert them at higher
+            index.
+
+            if you use a linked list, everytime a new person arrives they can simply
+            insert themselves without having to reallocate space
+
+Another abstract data structure, stacks
+
+    LIFO (last in first out)
+        like trays in a cafeteria, or stacked sweaters in a clothing store
+            the one on top is the first available
+        stacks support push and pop
+            popping value off stack (take shirt off stack) pushing value onto stack (place shirt on top)
+
+Another abstract data structure, Dictionaries
+
+    look up values by way of keys
+        find the word "armadillo" (a key) to obtain the definition (the value)
+
+    "perverse corner case" -- a term that refers to a case where the data structure breaks down (devolves) and is no longer effective)
+        if a key refers to a lot of values, then it becomes harder to find the value
+            sounds a lot like our initial problem with hash tables
+
