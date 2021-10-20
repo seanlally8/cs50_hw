@@ -1,0 +1,84 @@
+get_int does a lot of error checking for us, namely: check to see if the user entered an integer
+
+Note that in C, when you divide two integers (as in 1 / 2), you get back a truncated int (in this case 0, as opposed to
+0.5)
+    In python, however, you get a float when dividing ints.
+
+Note that you may want to "namespace" your functions using the dot operator (as in cs50.get_int) when you're using
+2 libraries with the same functions. This prevents collisions
+
+Python, like most if not all scripting languages reads more like plain english
+
+No fundamental difference between double and single quotes in Python
+
+No chars in python, just strings
+    downside, not as much control
+    upside, more userfriendly
+
+When typing s.lower don't forget parentheses i.e. s.lower()
+
+
+When calling functions, you have to make sure that when calling a function you have to make sure the function is
+already defined (remember, the interpreter reads line by line).
+    so first you need to define your functions and then call the function.
+            structure:
+                            def main()
+                                newfunction()
+
+                            def newfunction()
+
+                            #if implementing your own library include the cryptic precursor
+                            if __name__ == "__main__"
+                                main()
+            the cryptic line can usually be avoided, so you'd mostly just have main() without any indentation
+
+You can pass arguments to functions by adding parameters just like c (def newfunction(n))
+
+No do while loop
+
+Variable are available outside the scope in which their defined within functions, but you need to return variables to
+access them across functions
+
+Python supports not just positional arguments but "named arguments", where each input can have a name defined by programmer
+    print ("Hi", end="") end is named here, default is end="\n"
+        you can, if you choose do the following: end="hello"
+        C didn't have optional arguments.
+
+It also support automatic concatenation (e.g. print("?" * 4), which produces ???? and \n
+
+No integer overflow in python
+
+Options for printing
+    given a list ([1, 2, 3]) you can print the average in two ways:
+
+        print("Average: " + str(sum(scores) / len(scores)))
+        or
+        print(f"Average: {(sum(scores) / len(scores))})
+    alternatively you could store the result of the calculation in a variable and plug that
+    into the above examples
+
+list not only contains data but functions as in scores.append (where scores has already
+been defined as a list, scores = [])
+
+You can use for c in s: (where c means character and s is a variable containing a string) to iterate
+over a string character by character
+    useful for cryptography for instance
+
+sys is a standard library in python
+    len(argv) is equivalent to argc in C
+    you can still use square bracket notation as in argv[]
+    you can print all the arguments with print(arg)
+
+You can exit a program with errors using sys.exit(1)
+
+You can use dicts in python like hash tables, where keys can be anything
+    stylistically, {key: value, key: value}
+    dicts are known as associative arrays, in that you can associate data with keys that you define
+
+csv.writer(file) wraps the file in functionality that allows me to write to it.
+
+next(reader) skips first row
+
+for row in reader:
+    house = row[1]
+    houses[house] += 1
