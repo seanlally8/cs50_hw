@@ -26,9 +26,9 @@ print()
 for key in shorttan[0]:
     if key == "name":
         continue
-    regex = r"(" + key + r")*"
-    match = re.findall(regex, str(dna))
+    match = re.findall(key, str(dna))
     print(match)
-    count.append(match)
+    count.append(len(match))
 
 print()
+print(count)
