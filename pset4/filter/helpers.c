@@ -13,7 +13,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             //Calculate average color value for pixel and set each color value to that average.
-		    avg = ((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0);
+            avg = ((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0);
             image[i][j].rgbtBlue = round(avg);
             image[i][j].rgbtGreen = round(avg);
             image[i][j].rgbtRed = round(avg);
@@ -49,7 +49,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     //image. Without this temporary variable, the original image would be altered, affecting the subsequent calculations and distorting the outcome.
     RGBTRIPLE cp_image[height][width];
 
-   	//The first two for loops carry us pixel by pixel through the image, row by row.
+    //The first two for loops carry us pixel by pixel through the image, row by row.
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j ++)
@@ -78,23 +78,23 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     else
                     {
                         //Add up the color values to be averaged.
-                       	sumRed = sumRed + image[x][y].rgbtRed;
-                       	sumGreen = sumGreen + image[x][y].rgbtGreen;
-                       	sumBlue = sumBlue + image[x][y].rgbtBlue;
-                       	//count the number of values so that we can perform the averaging calculationg
-			            count = count + 1.0;
+                        sumRed = sumRed + image[x][y].rgbtRed;
+                        sumGreen = sumGreen + image[x][y].rgbtGreen;
+                        sumBlue = sumBlue + image[x][y].rgbtBlue;
+                        //count the number of values so that we can perform the averaging calculationg
+                        count = count + 1.0;
                     }
                 }
             }
             //Storing the average color values in the avg variables.
             avgr = sumRed / count;
             avgg = sumGreen / count;
-		    avgb = sumBlue / count;
+            avgb = sumBlue / count;
             //Storing the averages in a temporary RGBTRIPLE variable, which will then be iterated over into the actual image[][] array
             cp_image[i][j].rgbtRed = round(avgr);
             cp_image[i][j].rgbtGreen = round(avgg);
             cp_image[i][j].rgbtBlue  = round(avgb);
-	    }
+        }
     }
     //Here, we're placing the average color values, pixel by pixel, into the original image[][] array.
     for (int m = 0; m < height; m++)
@@ -103,8 +103,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             image[m][p].rgbtRed = cp_image[m][p].rgbtRed;
             image[m][p].rgbtGreen = cp_image[m][p].rgbtGreen;
-           	image[m][p].rgbtBlue = cp_image[m][p].rgbtBlue;
-	    }
+            image[m][p].rgbtBlue = cp_image[m][p].rgbtBlue;
+        }
 
     }
     return;

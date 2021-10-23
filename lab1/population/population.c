@@ -39,7 +39,8 @@ int main(void)
         int dead_again;
         int eoy;
         do
-        {   //Run this formula until the end of year (eoy) amt
+        {
+            //Run this formula until the end of year (eoy) amt
             //is greater than or equal to the end size.
             born = start_size / 3;
             born_again = trunc(born);
