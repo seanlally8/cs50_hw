@@ -71,7 +71,7 @@ int main(void)
     }
     else  if ((ccnumber >= 4000000000000 && ccnumber < 5000000000000 && final_modulo == 0)
 
-              || (ccnumber >= 4000000000000000 & ccnumber < 5000000000000000 && final_modulo == 0))
+              || (ccnumber >= 4000000000000000 && ccnumber < 5000000000000000 && final_modulo == 0))
     {
         printf("VISA\n");
     }
