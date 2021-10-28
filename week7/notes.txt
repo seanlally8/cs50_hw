@@ -1,0 +1,16 @@
+relational databases
+    Micr. Access, Oracle, SQL server,
+        implemented in software
+            allow us to insert data, search data much more efficiently than in a flatfile (csv)
+
+with relational data, SQL, used in conjunction with other programming language
+    python can use SQL to do more powerful things than python
+        SQLite is a more user friendly than SQL, used by our iphones and other hardware
+            SQL is the basis of most other relational database software (Oracle, Access, etc)
+
+We can query data with SQL
+
+Now, all our data is in a binary file (0s and 1s), 
+    to interact with this binary file, we need a tool (sqlite3, a cli tool) to interact with the tables (in the binary file)
+        you can import a csv into the database
+    
