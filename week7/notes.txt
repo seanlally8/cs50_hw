@@ -14,3 +14,58 @@ Now, all our data is in a binary file (0s and 1s),
     to interact with this binary file, we need a tool (sqlite3, a cli tool) to interact with the tables (in the binary file)
         you can import a csv into the database
     
+CRUD -- general operations used in relational databases
+
+Create
+Read
+Update
+Delete
+
+in sqlite this translates to:
+
+Create, or Insert
+    i.e. CREATE TABLE table (<- name of table)
+Select
+    i.e. you can select a particular column from table
+Update
+Delete
+
+
+    
+Data types in sqlite
+    Blob, int, numeric, real, text
+            Numeric -> number like but not int, date time etc
+            blob -> large binary object
+    
+SQL -> when we create columns manually, we can say a column cannot be NULL, 
+            And we can use Unique to say whatever values are in colum must be unique (can't double up emails for instance)
+
+Primary keys and foreign keys
+    two tables
+            Shows
+                ID (Primary Key) uniquely identifies each row
+                Title  
+            
+            Genres
+                show ID (Foreign Key) refers to primary key
+                Genre
+            
+            
+            example
+            
+            Table 1
+            The Office (connected to row with ID #003)
+            
+            Table 2
+            Comedy (connected to row with #003)
+            Drama (Connected to row with #003)
+            
+in sqlite you can nest queries
+    SELECT title FROM shows WHERE id IN( nested query) to get the title associated with given show
+    
+We can add a third table that contains all the relevant ids that point to their corresponding rows in corresponding table
+        
+            
+        
+            
+            
