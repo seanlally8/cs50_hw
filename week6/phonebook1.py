@@ -5,7 +5,7 @@ from cs50 import get_string
 file = open("phonebook.csv", "a")
 
 name = get_string("Name: ")
-number = get_string_("Number: ")
+number = get_string("Number: ")
 
 writer = csv.writer(file)
 

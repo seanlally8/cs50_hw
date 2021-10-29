@@ -76,3 +76,9 @@ You can use dicts in python like hash tables, where keys can be anything
     dicts are known as associative arrays, in that you can associate data with keys that you define
 
 csv.writer(file) wraps the file in functionality that allows me to write to it.
+
+next(reader) skips first row
+
+for row in reader:
+    house = row[1]
+    houses[house] += 1
