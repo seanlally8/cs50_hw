@@ -1,0 +1,17 @@
+incognito mode -- no local cookies kept, or browsing history, but still visible to website your visiting, 
+
+confidential mode == bs
+
+end-to-end encryption -- encrypted from sender to receiver (not any intermediary servers)
+
+imessages that are green are not using encryption
+
+    Zoom claimed end to end encryption but they had ability to decrypt. End to end means ONLY sender and receiver, not even the company's servers
+
+seanlally8
+
+!!!
+use password manager
+use 2 factor authentication
+use end to end encryption where it's an option 
+!!!
