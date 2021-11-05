@@ -1,0 +1,29 @@
+<!DOCTYPE html> <!-- Here comes html5-->
+
+<html lang="en"> <!-- Attribute "lang='en'" tells browser what language to expect for purposes of translation, if necessary-->
+    <head>
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').addEventListener('submit', function() {
+                    let name = document.querySelector('#name').value;
+                    alert('hello, ' + name);
+                });
+            });
+
+        </script>
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        <form>
+            <input id="name" autocomplete="off" autofocus="on" placeholder="what's your name?" type="text">
+            <input type="submit" value="greet me">
+
+        </form>
+    </body>
+</html>
+
+<!-- the browser will translat the above into a data structure, a tree -->
+<!--
