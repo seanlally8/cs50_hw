@@ -1,0 +1,103 @@
+DNS Domain Name System
+    converts urls (www.example.com) to the IP Address of the webserver for the site
+    Writes that IP address on the metaphorical envelope, before sending out the packet
+    This is a service provided by the ISP (XFINITY in my case)
+TCP Transmission Control Protocol
+    This allows the server (with a single IP address) to do multiple things.
+    If the server provides multiple services, it looks for an additional number
+    There are agreed upon port numbers for different servers. For instance, 443 is for https requests
+    and port 80 is for HTTP requests. Zoom, email, etc. all have their own.
+IP Internet Protocol
+    The address on the outside of the envelope
+
+*Note that the TCP port number is appendedd to the end of the IP address so that once the packet arrives the server knows where to delegate the request
+
+HTTP/HTTPS Hypertext Transfer Protocol
+    This is at the top of the contents of your envelope -- the "Dear Server" part, if you will.
+
+*Note that HTTPS refers to a secured request for a webpage (i.e. it's encrypted)
+
+When you send a request the server will respond with a status code (like 200 OK, if everything's fine, and 301 Moved Permanently, if the site has changed urls)
+
+HTML Hypertext Markup Language
+    This will be below your HTTP(S) request, inside the envelope, usually with other files as well. You need an HTML file so the web browser
+    knows how to display the information.
+
+CSS Cascading Stylesheets
+    not a programming language but can help us style a webpage
+    KEYWORD: properties
+        key, value pairs (like attributes in HTML)
+
+Javascript
+    somewhere between C and python (closer to C syntactically
+
+--Declare a variable  (loosely typed)
+let counter = 0;
+
+counter = counter + 1
+counter += 1
+counter++
+
+if, else if, else, close to C
+
+while (true)
+{
+
+}
+
+for (let i = 0; i < 3; i++)
+{
+
+}
+
+
+DOM Document Object Model is the tree ^
+
+blur
+change
+click
+drag
+focus
+keyup
+load
+mousedown
+mouseover
+mouseup
+submit
+touchmove
+unload
+
+These are types of "events"
+
+DOM properties
+innerHTML (inside tags)
+nodeName (name of html element or attribute)
+id (id attribute of html element)
+parentNode (reference to node one level up)
+childNodes (an array of references to nodes one level down)
+attributes (an array of attributes of an HTML element)
+style (an object encapsulating css/html styling of element)
+
+DOM methods
+getElementById(id) (gets the element with the given ID below this point in the DOM)
+getElementsByTageName(tag) Gets elements with the given tag below this point in the DOM
+appendChild(node) (add the given node to the DOM below this point)
+removeChild(node) (remove the specified child node from DOM)
+
+jQuery good for client side scripting
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('#answer').onsubmit = function() {
+                    let field = document.querySelector('#field');
+                    let message_part2 = document.querySelector('#message_part2');
+                    if (field.value.toLowerCase() == 'england') {
+                        field.style.backgroundColor = 'green';
+                        message_part2.innerHTML = "Correct!"
+                    }
+                    else {
+                        answer.style.backgroundColor = 'red';
+                        field.innerHTML = "Incorrect";
+                    }
+                };
+            });
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            function reset(id) {
+                let x = document.querySelectorAll('button');
+                for (let i = 0; i < 4; i++) {
+                    if (String(i) === id) {
+                        continue
+                    }
+                    else {
+                        x[i].style.backgroundColor = '#d9edff';
+                    }
+                }
+            }
+
+            function changeColor(id) {
+                let message_part1 = document.querySelector('#message_part1');
+                if (id != 'four') {
+                    document.getElementById(id).style.backgroundColor = 'red';
+                    message_part1.innerHTML = 'Incorrect';
+                }
+                else {
+                     document.getElementById(id).style.backgroundColor = 'green';
+                     message_part1.innerHTML = 'Correct!';
+                }
+            }
+
+            function changeFieldColor() {
+                let message_part2 = document.querySelector('#message_part2');
+                let text = document.getElementById('text').value;
+                let field = document.getElementById('text');
+                if (text.toLowerCase() !== 'england') {
+                    field.style.backgroundColor = 'red';
+                    message_part2.innerHTML = 'Incorrect';
+                }
+                else {
+                   field.style.backgroundColor = 'green';
+                   message_part2.innerHTML = 'Correct!';
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <h3>In what year did the Luddite uprisings take place?</h3>
+                <button id="one" onclick="reset(id); changeColor(id);">1796</button>
+                <button id="two" onclick="reset(id); changeColor(id);">1610</button>
+                <button id="three" onclick="reset(id); changeColor(id);">1850</button>
+                <button id ="four" onclick="reset(id); changeColor(id);">1811</button>
+
+                <p id="message_part1"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <h3>In which country did the Luddite uprising take place?</h3>
+                <form>
+                    <input id="text" autocomplete="off" autofocus placeholder="Type answer here" type="text">
+                </form>
+                <button id="confirm" onclick="changeFieldColor()">Confirm</button>
+                <p id="message_part2"></p>
+            </div>
+        </div>
+    </body>
+</html>
