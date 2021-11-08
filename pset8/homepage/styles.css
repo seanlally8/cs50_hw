@@ -1,8 +1,7 @@
-body {
-    background-color: rgb(218, 234, 227);
-    font-family: "Helvetica", sans-serif;
-    font-weight: normal;
-    text-transform: uppercase;
+/* Tag selectors */
+a, a:hover {
+    color: #a3dbd6;;
+    text-decoration: none;
 }
 
 article {
@@ -13,26 +12,46 @@ article {
     text-transform: none;
 }
 
-header {
-    position: fixed;
-    background-color: rgb(109, 155, 135);
-    width: 100%;
-    height: 4.1em;
-    border: 2px solid black;
+body {
+    font-family: "Helvetica", sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+blockquote {
+    margin: 0px 160px 0px 0px;
+    font-size: .8em;
+}
+
+label {
+    margin-right: 2vw;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 footer {
+    display: flex;
     background-color: rgb(109, 155, 135);
+    border-top: 2px solid black;
     position: fixed;
     bottom: 0;
-    border-top: 3px solid black;
-    height: 9.1vh;
+    height: 6.1em;
     width:100vw;
 }
 
-a, a:hover {
-    color: black;
-    text-decoration: none;
+form {
+    position: absolute;
+    left: 3vw;
+    top: 2.2vh;
+    display: inline-block;
+}
+
+header {
+    position: fixed;
+    background-color: rgb(109, 155, 135);
+    border-bottom: 2px solid black;
+    width: 100%;
+    height: 6.1vh;
 }
 
 h1 {
@@ -57,29 +76,33 @@ h3 {
     font-size: 3.5em;
     font-weight: bold;
     letter-spacing: -0.050em;
-    color: #50665e;
+    color: black;
 }
 
 ul {
-    position: fixed;
     list-style-type: none;
-    bottom: 0;
-    right: 3vh;
 }
 
-li {
-    display: inline-block;
-    margin-right: 30px;
+
+/* Class selectors */
+.articlesheaderfooter {
+    background-color: rgb(88, 89, 164);
 }
 
+.btn, .btn:hover, .btn:active, .btn::after {
+    content: none;
+    color: black !important;
+    background-color: inherit !important;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+    border-right: 0;
+    border-left: 0;
+    width: 50px;
+    height: 25px;
+}
 
 .center {
     text-align: center;
-}
-
-.firstletter::first-letter {
-    font-size: 4em;
-    font-family: "Georgia", sans-serif;
 }
 
 .dropdown-item:hover {
@@ -99,37 +122,42 @@ li {
     border: 3px solid black !important;
 }
 
-.btn, .btn:hover, .btn:active, .btn::after {
-    content: none;
-    color: black !important;
-    background-color: inherit !important;
-    border-top: 4px solid black;
-    border-bottom: 4px solid black;
-    border-right: 0;
-    border-left: 0;
-    width: 50px;
-    height: 25px;
+
+.firstletter::first-letter {
+    font-size: 4em;
+    font-family: "Georgia", sans-serif;
+    font-weight: normal;
 }
 
-#main_img {
-    position: absolute;
-    top: 8vh;
-    background-image: url("reachup.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    height: 83vh;
-    width: 100vw;
+.headlink, .headlink:hover {
+    color: black;
+    text-decoration: none;
 }
 
-#stream {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+.musicheaderfooter {
+    background-color: rgb(164, 88, 159);
 }
 
+.sociallist {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.tab {
+    margin-left: 60px;
+}
+
+.videolist {
+    text-align: center;
+    padding-top: 130px;
+}
+
+.videoheaderfooter {
+    background-color: rgb(164, 88, 88);
+}
+
+
+/* id Selectors */
 #aboutback {
     background-color: rgb(109, 155, 135);
     font-family: "Helvetica", sans-serif;
@@ -140,13 +168,78 @@ li {
 #aboutimg {
     background-image: url("dance.png");
     background-position: 50% 34%;
-    border-bottom: 3px solid black;
     width: 100%;
     height: 25em;
 }
 
 #abouttxt {
-    margin-right: 200px;
-    margin-left: 200px;
+    margin-right: 300px;
+    margin-left: 300px;
 }
 
+#articlesback {
+    background-color: rgb(88, 89, 164);
+}
+
+#email, #email:focus {
+    outline: none;
+    border-radius: 15px 50px;
+    background-color: rgb(225, 225, 225);
+    border: 1px solid black;
+    margin-right: 1vw;
+    box-shadow: 1px 1px 3px black;
+    text-align: center;
+}
+
+#home_img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-image: url("reachup.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    border: 2px solid black;
+    height: 100vh;
+    width: 100vw;
+}
+
+#indexheaderfooter {
+    background-color: rgb(218, 234, 227);
+}
+
+#musicback {
+    background-color: rgb(164, 88, 159);
+}
+
+
+#social {
+    display: inline-block;
+    position: absolute;
+    top: 2.2vh;
+    right: 3vw;
+    padding: 0;
+    list-style-type: none;
+}
+
+#stream {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#submitbtn {
+    background-color: rgb(225, 225, 225);
+    border-radius: 8px;
+    border: 1px solid black;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px black;
+    width: 8vw;
+}
+
+#videosback {
+    background-color: rgb(164, 88, 88);
+    font-family: "Helvetica", sans-serif;
+    font-weight: normal;
+    transform: uppercase;
+}
