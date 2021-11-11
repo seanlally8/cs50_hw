@@ -1,0 +1,7 @@
+Flask provides a dynamic server that constantly listens on port 80 for updates.
+
+Directory structure of flask
+1. Templates/
+2. requirements.txt
+3. app.py --> backend for applicaton, governs routes and data manipulation
+4. static/ --> for static files, like css, images, videos, etc.

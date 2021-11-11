@@ -13,8 +13,7 @@
 
         <title>My Thing</title>
     </head>
-    <body id="aboutback">
-
+    <body class="aboutback">
     <!-- Header container -->
         <header>
             <h1><a class="headlink" href="index.html">Sean Lally</a></h1>
@@ -74,12 +73,12 @@
                 <hr></hr>
 
                 <!-- Footnotes to About Me Section -->
-                <p><sup id="fn1">1. The thing about putting your cud in the blender is that, in doing so, you're claiming your independence
+                <p><sup class="fn">1. The thing about putting your cud in the blender is that, in doing so, you're claiming your independence
                 over and above the microbiota which make rumination possible. You're saying, "I don't need anyone else; I can
                 digest it all on my own." Please bear with this clumsy analogy, despite its limits. Note, as an aside, that we do, in point of fact, rely on <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/30843443/">a universe of bugs and microscopic critters</a> to break down
                 nutrients and fight disease.<a href="#ref1" title="Return to footnote 1 in text"> [Back]</a></sup></p>
 
-                <p><sup id="fn2">2. See Lacan's <a href="https://books.google.com/books?id=3-ql582VI-4C&newbks=0&lpg=PA43&pg=PA43&output=embed">Seminar VII</a> for a strange and circuitous explanation of Das Ding.
+                <p><sup class="fn">2. See Lacan's <a href="https://books.google.com/books?id=3-ql582VI-4C&newbks=0&lpg=PA43&pg=PA43&output=embed">Seminar VII</a> for a strange and circuitous explanation of Das Ding.
                 The following passage bears quoting:</p>
                 <blockquote><p class="tab">The world of our experience, the Freudian world, assumes that it is this object, das Ding,
                 as the absolute Other of the subject, that one is supposed to find again. It is to be found at the most
@@ -99,7 +98,7 @@
         </section>
 
     <!-- Footer  -->
-        <form>
+        <form class="emailform">
             <input type="text" id="email" autocomplete="off" placeholder="enter your email here" size="30">
             <!-- Button trigger modal -->
             <button onclick="confirm();" type="button" class="confirmbtn" data-bs-toggle="modal" data-bs-target="#mainmodal">
@@ -110,7 +109,7 @@
             <!-- This Modal is a modified bootstrap component -->
         <div class="modal fade" id="mainmodal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content aboutback">
                      <div class="modal-header">
                      <h5 class="modal-title" id="modal-title">!</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -119,7 +118,7 @@
                       <p id="confirmmsg"></p>
                   </div>
                   <div class="modal-footer">
-                       <button type="button" class="confirmbtn" data-bs-dismiss="modal">OK</button>
+                       <button type="button" class="okbtn" data-bs-dismiss="modal">OK</button>
                    </div>
                 </div>
              </div>
@@ -149,15 +148,14 @@
             let myRe = /^[a-zA-Z.0-9]+@[a-zA-Z]+(\.com|\.edu)$/g;
             let found = myRe.test(email);
             let confirmmsg = document.querySelector('#confirmmsg');
-            let denymsg = document.querySelector('#modal-title');
-            console.log(email);
+            let modaltitle = document.querySelector('#modal-title');
 
             if (found === true) {
-                denymsg.innerHTML = 'Woohoo!';
-                confirmmsg.innerHTML = 'You\'ve subscribed to the Maker of Things newsletter! You should receive a confirmation email shortly. You can unsubscribe at any time by clicking \'unsubscribe\' in any email received via this form.';
+                modaltitle.innerHTML = 'Woohoo!';
+                confirmmsg.innerHTML = 'Were this a real form, you would now be subscribed to the Maker of Things newsletter! You would receive a confirmation email shortly. You would be able to unsubscribe at any time by clicking \'unsubscribe\' in any email received via this form.';
             }
             else {
-                denymsg.innerHTML = 'Uh Oh...';
+                modaltitle.innerHTML = 'Uh Oh...';
                 confirmmsg.innerHTML = 'Sorry, that\'s not a valid email. Check to make sure everything\'s in order and try again!';
             }
         }

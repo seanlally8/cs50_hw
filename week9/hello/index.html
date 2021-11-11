@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <!-- post will still get the route, but it won't list name in url, as it will bury the request further down in the http request -->
+    <form action="/" method="post">
+        <!-- using "required" this (client side error checking is not suggested because a user can change that code in dev tools -->
+        <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+        <input type="submit">
+    </form>
+{% endblock %}
