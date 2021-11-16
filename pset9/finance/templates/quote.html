@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Stock Symbol" name="symbol" autofocus>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Quote</button>
+    </form>
+{% endblock %}

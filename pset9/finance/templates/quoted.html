@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block main %}
+    <div style="text-align: left;">
+        <h1><span style="opacity: .5;">Market Price</span> > {{ quote.name }}</h1>
+        <h3 style="opacity: .5;">NASDAQ: {{ quote.symbol }}</h3>
+        <br><br>
+        <h2>{{ quote.price | usd }}</h2>
+    </div>
+{% endblock %}

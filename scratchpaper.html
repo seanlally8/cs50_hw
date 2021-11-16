@@ -1,0 +1,79 @@
+<div class="articles-leftcolumn">
+    <div class="blognav">
+        <form class="blogform" onsubmit="filterBlog(event)">
+            <input type="submit" class="litbtn" id="poems" value="POEM">
+            <input type="submit" class="litbtn" id="essays" value="ESSAY">
+            <input type="submit" class="litbtn" id="narrative" value="NARRATIVE">
+            <input type="submit" class="litbtn" id="commercial" value="COMMERCIAL">
+        </form>
+    </div>
+</div>
+
+ <div class="articles-leftcolumn">
+    <div class="blognav">
+        <button class="litbtn" id="poem" onclick="filterBlog();">POEMS</button>
+        <button class="litbtn" id="essay" onclick="filterBlog();">ESSAYS</button>
+        <button class="litbtn" id="narrative" onclick="filterBlog();">NARRATIVE</button>
+        <button class="litbtn" id="commercial" onclick="filterBlog();">COMMERCIAL</button>
+    </div>
+</div>
+
+<div class="blogpost poem-essay">
+    <div class="blogpostheading">
+        <p>POEM ESSAY</p>
+         <p class="blogdate">APRIL 24 2020</p>
+    </div>
+    <h4><a class="blogtitlelink" target="_blank" href="https://mydearanacolutha.wordpress.com/2020/04/24/some-brief-notes-on-the-writing-of-david-rattray-part-i/">
+    Some Brief Notes on the Writing of David Rattray, Part I</a></h4>
+    <p>... Refracting Rattray through Moten, we might think of tradition less as the hunky-dory mythos of grandfather time and
+    more as what Moten calls “the refuge of an ongoing displacement.” Along these lines, tradition refers to the always-already
+    provisional and improvisational habitus of a people trying to make their way through the muck and wreckage of history. The
+    movement through tradition by way of a process of repetition, revision and critique is what we might call, following Moten,
+    improvisation. And improvisation carries with it both the means toward life ...</p>
+    </div>
+    
+<select name="genres" class="litbtn"><option value="poems">POEMS</option><option value="essays">ESSAYS</option><option value="narrative">NARRATIVE</option><option value="commercial">COMMERCIAL</option>
+
+
+
+<script>
+ function filterBlog(event) {
+            let submitter = event.target;
+            console.log(submitter);
+            console.log('');
+            let x = document.getElementsByClassName('blogpostheading');
+            for (let i = 0; i < x.length; i++) {
+                let genre = x[i].querySelector('p').innerHTML;
+                console.log(genre);
+                if (genre.includes(submitter.value)) {
+                    x[i].style.display = 'none';
+                }
+            }
+        }
+
+        for (let i = 0; i < x.length; i++) {
+                let genre = x[i].querySelector('p').innerHTML;
+                console.log(genre);
+                if (genre.includes(button)) {
+                    x[i].style.display = 'none';
+                }
+            }
+</script>
+
+
+
+
+<button class="litbtn" id="poem" onclick="filterBlog(event);">POEMS</button>
+<button class="litbtn" id="essay" onclick="filterBlog(event)";>ESSAYS</button>
+<button class="litbtn" id="narrative" onclick="filterBlog(event);">NARRATIVE</button>
+<button class="litbtn" id="commercial" onclick="filterBlog(event);">COMMERCIAL</button>
+
+
+
+<select name="genres" class="litbtn"><option value="poems">POEMS</option><option value="essays">ESSAYS</option><option value="narrative">NARRATIVE</option><option value="commercial">COMMERCIAL</option>
+
+
+<input type="submit" class="litbtn" id="POEM" value="POEM">
+<input type="submit" class="litbtn" value="ESSAY">
+<input type="submit" class="litbtn" value="NARRATIVE">
+<input type="submit" class="litbtn" value="COMMERCIAL">

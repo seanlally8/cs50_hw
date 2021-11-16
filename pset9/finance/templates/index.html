@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block main %}
+    <table>
+        <span class="table-title blue">$to<span class="yellow">ck</span> <span class="green">$um<span class="red">mary</span></span>
+        <br><br>
+        <tr>
+            <th>Stock Symbol</th>
+            <th>Number of Shares</th>
+            <th>Current Price</th>
+            <th>Total Value</th>
+        </tr>
+    {% for purchase in purchases %}
+        <tr>
+            <td>{{ purchase.stock_symbol}}</td>
+            <td>{{ purchase.num_of_shares}}</td>
+            <td>{{ purchase.price | usd }}</td>
+            <td>{{ (purchase.price * purchase.num_of_shares) | usd }}</td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td class="noborder"></td>
+            <td class="noborder"></td>
+            <td class="noborder"></td>
+            <td class="noborder"></td>
+        </tr>
+        <tr>
+            <td class="noborder"></td>
+            <td class="noborder"></td>
+            <td class="bg_color">Cash Balance</td>
+            <td>{{ cash | usd }}</td>
+        </tr>
+        <tr>
+            <td class="noborder"></td>
+            <td class="noborder"></td>
+            <td class="bg_color">Grand Total</td>
+            <td>{{ total | usd }}</td>
+        </tr>
+    </table>
+{% endblock %}
