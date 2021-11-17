@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}History{% endblock %}
+
+{% block main %}
+<!-- Table containing the entire history of stock transactions -->
+    <table>
+        <span class="table-title blue">Hi<span class="red">$</span><span class="yellow">to</span><span class="green">ry</span></span>
+        <br><br>
+        <tr>
+            <th>Transaction Type</th>
+            <th>Stock Symbol</th>
+            <th>Number of Shares</th>
+            <th>Price</th>
+            <th>Time of Transaction</th>
+        </tr>
+    {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.transaction_type }}</td>
+            <td>{{ transaction.stock_symbol }}</td>
+            <td>{{ transaction.num_of_shares }}</td>
+            <td>{{ transaction.price | usd }}</td>
+            <td>{{ transaction.time_of_sale }}</td>
+        </tr>
+
+    {% endfor %}
+    </table>
+{% endblock %}

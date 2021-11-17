@@ -34,21 +34,12 @@ footer {
     white-space: nowrap;
 }
 
-.emailform {
-    position: fixed;
-    padding: 0;
-    left: 50px;
-    bottom: 30px;
-    display: inline-block;
-    z-index: 1;
-}
-
 header {
     position: fixed;
     background-color: rgb(109, 155, 135);
     border-bottom: 0;
     width: 100%;
-    height: 6.1vh;
+    height: 8vh;
 }
 
 h1 {
@@ -108,6 +99,7 @@ ul {
     top: 15vh;
     float: left;
     width: 25%;
+    z-index: -1;
 }
 
 .articles-rightcolumn {
@@ -133,30 +125,31 @@ ul {
      height: 442px;
  }
 
+.blogpost {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid black;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgb(117, 118, 189);
+    box-shadow: 0px 0px 0px black;
+}
+
 .blogpostheading p {
     display: inline;
 }
 
-.blogpostheading {
-    padding-bottom: 20px;
-}
-
-.blogpost {
-    border: .5px solid rgb(143, 128, 166);
-    margin-bottom: 40px;
-    padding: 20px;
-}
-
 .blogpost h4 {
     text-transform: none;
-    font-family: "Libre Baskerville", serif;
+    font-family: "perpetua", serif;
     font-size: 2em;
     text-align: left;
+    padding-bottom: 18px;
 }
 
 .blogpost p {
-    font-family: "Libre Baskerville", serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-family: "perpetua", serif;
 }
 
 .blogtitlelink {
@@ -164,7 +157,7 @@ ul {
 }
 
 .blogtitlelink:hover {
-    color: rgb(188, 124, 198);
+    color: rgb(94, 42, 102);
 }
 
 .blogdate {
@@ -178,10 +171,13 @@ ul {
     animation: moveside 2s;
 }
 
-
 .blogform {
     position: relative;
     top: 2vh;
+}
+
+.blogsearch {
+    display: flex;
 }
 
 .center {
@@ -189,12 +185,17 @@ ul {
 }
 
 .confirmbtn {
-    background-color: rgb(225, 225, 225);
-    border-radius: 8px;
+    background-color: inherit;
     border: 1px solid black;
     font-weight: bold;
-    box-shadow: .5px .5px 3px grey;
+    box-shadow: .5px .5px 2px black;
     text-align: center;
+    margin-top: 4vh;
+}
+
+.confirmbtn:hover {
+    background-color: rgb(94, 42, 102);
+    color: rgb(188, 124, 198);
 }
 
 .dropdown-item:hover {
@@ -211,6 +212,20 @@ ul {
 .dropdown-menu {
     background-color: inherit;
     border: 3px solid black !important;
+    min-width: 10rem;
+}
+
+.emailform {
+    position: fixed;
+    padding: 0;
+    left: 50px;
+    bottom: 30px;
+    display: inline-block;
+    z-index: 1;
+}
+
+.fa .fa-search {
+    display: inline;
 }
 
 .firstletter::first-letter {
@@ -225,7 +240,7 @@ ul {
 }
 
 .indexheaderfooter {
-    background-color: rgb(218, 234, 227);
+    background-color: rgb(255, 255, 255);
 }
 
 .lowercase {
@@ -233,10 +248,10 @@ ul {
 }
 
 .litbtn {
-    background-color: rgb(188, 124, 198);
-    border: 1px solid rgb(101, 98, 183);
+    background-color: rgb(88, 89, 164);
+    border: 1px solid black;
     font-weight: bold;
-    box-shadow: .5px .5px 3px grey;
+    box-shadow: .5px .5px 3px black;
     text-align: center;
     margin-top: 4vh;
     padding: 2vh 2vw 2vh 2vw;
@@ -253,15 +268,6 @@ ul {
 
 .musicheaderfooter {
     background-color: rgb(164, 88, 159);
-}
-
-.okbtn {
-    background-color: rgb(225, 225, 225);
-    border-radius: 8px;
-    border: 1px solid black;
-    font-weight: bold;
-    box-shadow: .5px .5px 3px grey;
-    width: 4vw;
 }
 
 .sociallist {
@@ -297,6 +303,11 @@ ul {
     margin-left: 20vw;
 }
 
+#confirmmsg {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #dropdownMenuButton1, #dropdownMenuButton1:hover, #dropdownMenuButton1:active, #dropdownMenuButton1::after {
     content: none;
     color: black !important;
@@ -312,10 +323,10 @@ ul {
 #email, #email:focus {
     outline: none;
     border-radius: 15px 50px;
-    background-color: rgb(225, 225, 225);
+    background-color: inherit;
     border: 1px solid black;
     margin-right: 1vw;
-    box-shadow: 1px 1px 3px grey;
+    box-shadow: 1px 1px 3px black;
     text-align: center;
 }
 
@@ -323,25 +334,27 @@ ul {
     position: absolute;
     top: 0;
     bottom: 0;
-    background-image: url("reachup.png");
+    background-image: url("couch_sean.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     border: 0;
     height: 100%;
     width: 100%;
     max-width: 100%;
 }
 
-
-
 #musicback {
     background-color: rgb(164, 88, 159);
 }
 
-#confirmmsg {
-    margin-left: 10px;
-    margin-right: 10px;
+#searchbox, #searchbox:focus {
+    background-color: rgb(88, 89, 164);
+    border-bottom: 2px solid black;
+    border-right: 0;
+    border-top: 0;
+    border-left: 0;
+    outline: none;
 }
 
 #social {
@@ -368,7 +381,14 @@ ul {
 }
 
 /* styling for iphone and ipad */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 415px) {
+    .blogsearch {
+        position: absolute;
+        left: 16.5vw;
+    }
+}
+
+@media screen and (max-width: 875px) {
     #abouttxt {
         margin-right: 5vw;
         margin-left: 5vw;
@@ -376,8 +396,12 @@ ul {
 
     #social {
         position: absolute;
-        bottom: 3vh;
+        bottom: 2vh;
         right: 19vw;
+    }
+
+    footer {
+        height: 3.5em;
     }
 
     h1 {
@@ -385,11 +409,15 @@ ul {
     }
 
     h2 {
-        margin-right: 4vw;
+        margin-right: 11vw;
     }
 
     header {
         height: 10vh;
+    }
+
+    .blogsearch {
+        position: absolute;
     }
 
     .emailform {
@@ -415,6 +443,7 @@ ul {
       position: absolute;
       top:0;
       left: 0;
+      right:;
       width: 100%;
       height: 100%;
       z-index: -1;
@@ -425,7 +454,7 @@ ul {
 @media screen and (max-width: 677px) {
 
     .articles-rightcolumn {
-        top: 30vh;
+        top: 42vh;
         right: 0vw;
         left: 2.4vw;
         width: 95%;
@@ -459,10 +488,12 @@ ul {
 
 @keyframes moveupphone {
     from {top: 100vh;}
-    to {top: 30vh;}
+    to {top: 42vh;}
     }
 
 @keyframes moveside {
     from {left: 0vw;}
     to {left: 10vw;}
 }
+
+

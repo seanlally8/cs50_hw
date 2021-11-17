@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Quoted{% endblock %}
+
+{% block main %}
+<!-- Page containing the current Stock price, it's symbol and full company name -->
+    <div style="text-align: left;">
+        <h1><span style="opacity: .5;">Market Price</span> > {{ quote.name }}</h1>
+        <h3 style="opacity: .5;">NASDAQ: {{ quote.symbol }}</h3>
+        <br><br>
+        <h2>{{ quote.price | usd }}</h2>
+    </div>
+{% endblock %}
