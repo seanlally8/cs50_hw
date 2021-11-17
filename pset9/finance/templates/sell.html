@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Sell{% endblock %}
 
 {% block main %}
+<!-- Forms for selling stocks owned by user -->
     <form action="/sell" method="post">
         <div class="form-group">
             <select name="symbol">

@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Quote{% endblock %}
 
 {% block main %}
+<!-- Forms for obtaining a quote of any given stock. User must enter a valid stock symbol -->
     <form action="/quote" method="post">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Stock Symbol" name="symbol" autofocus>

@@ -1,12 +1,15 @@
 {% extends "layout.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block main %}
+<!-- Table containing summary of total stocks owned, their current total value based on currrent price,
+the current user's cash amount, and a grand total (current stock value + cash amount) -->
     <table>
-        <span class="table-title blue">$to<span class="yellow">ck</span> <span class="green">$um<span class="red">mary</span></span>
+        <span class="table-title blue">$to<span class="yellow">ck</span> <span class="green">$um</span><span class="red">mary</span></span>
         <br><br>
         <tr>
+            <td class="noborder"></td>
             <th>Stock Symbol</th>
             <th>Number of Shares</th>
             <th>Current Price</th>
@@ -14,7 +17,17 @@
         </tr>
     {% for purchase in purchases %}
         <tr>
-            <td>{{ purchase.stock_symbol}}</td>
+            <td class="noborder">
+                <form action="/buy" method="post" class="inline">
+                    <input type="hidden" name="shares" value="1">
+                    <button type="submit" name="symbol" class="btn btn-primary" value="{{ purchase.stock_symbol }}">Buy</button>
+                </form>
+                <form action="/sell" method="post" class="inline">
+                    <input type="hidden" name="shares" value="1">
+                    <button type="submit" name="symbol" class="btn btn-primary" value="{{ purchase.stock_symbol }}">Sell</button>
+                </form>
+            </td>
+            <td>{{ purchase.stock_symbol }}</td>
             <td>{{ purchase.num_of_shares}}</td>
             <td>{{ purchase.price | usd }}</td>
             <td>{{ (purchase.price * purchase.num_of_shares) | usd }}</td>
@@ -25,8 +38,10 @@
             <td class="noborder"></td>
             <td class="noborder"></td>
             <td class="noborder"></td>
+            <td class="noborder"></td>
         </tr>
         <tr>
+            <td class="noborder"></td>
             <td class="noborder"></td>
             <td class="noborder"></td>
             <td class="bg_color">Cash Balance</td>
@@ -35,8 +50,15 @@
         <tr>
             <td class="noborder"></td>
             <td class="noborder"></td>
+            <td class="noborder"></td>
             <td class="bg_color">Grand Total</td>
             <td>{{ total | usd }}</td>
         </tr>
     </table>
+
+    <script>
+            function buyshare() {
+                document.querySelector('#buyshare').submit();
+            }
+    </script>
 {% endblock %}
